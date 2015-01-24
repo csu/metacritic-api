@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from flask import Flask, jsonify, request
-# from quora import Quora, Activity
+import metacritic
 
 app = Flask(__name__)
 
@@ -30,9 +30,17 @@ def index_route():
         }
     })
 
-# @app.route('/users/<user>', methods=['GET'])
-# def user_stats_route(user):
-#     return jsonify(Quora.get_user_stats(user))
+@app.route('/critics', methods=['GET'])
+def all_critics():
+    return jsonify(metacritic.get_all_movie_critics())
+
+@app.route('/critics/letter/<letter>', methods=['GET'])
+def critics_by_letter(letter):
+    return jsonify(metacritic.get_movie_critics_for_letter(letter))
+
+@app.route('/critics/<critic_slug>', methods=['GET'])
+def critics_by_letter(critic_slug):
+    return jsonify(metacritic.get_movie_critic(critic_slug))
 
 ####################################################################
 # Start Flask
