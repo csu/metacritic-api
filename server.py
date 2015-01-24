@@ -32,11 +32,11 @@ def index_route():
 
 @app.route('/critics', methods=['GET'])
 def all_critics():
-    return jsonify(metacritic.get_all_movie_critics())
+    return jsonify({'critics': metacritic.get_all_movie_critics()})
 
 @app.route('/critics/letter/<letter>', methods=['GET'])
 def critics_by_letter(letter):
-    return jsonify(metacritic.get_movie_critics_for_letter(letter))
+    return jsonify({'critics': metacritic.get_movie_critics_for_letter(letter)})
 
 @app.route('/critics/<critic_slug>', methods=['GET'])
 def critic_by_slug(critic_slug):
