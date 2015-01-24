@@ -39,7 +39,7 @@ def critics_by_letter(letter):
     return jsonify(metacritic.get_movie_critics_for_letter(letter))
 
 @app.route('/critics/<critic_slug>', methods=['GET'])
-def critics_by_letter(critic_slug):
+def critic_by_slug(critic_slug):
     return jsonify(metacritic.get_movie_critic(critic_slug))
 
 ####################################################################
