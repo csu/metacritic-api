@@ -26,7 +26,9 @@ def index_route():
         'project_documentation': 'http://christopher.su/metacritic-api/',
         'project_issues': 'https://github.com/csu/metacritic-api/issues',
         'endpoints': {
-            
+            'Get all critics.', '/critics',
+            'Get critics by letter.', '/critics/letter/<letter>',
+            'Get reviews by critic.', '/critics/<critic_slug>'
         }
     })
 
